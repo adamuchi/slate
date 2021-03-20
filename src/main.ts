@@ -1,32 +1,19 @@
-import { app, BrowserWindow } from 'electron';
-import * as path from 'path';
+// We use TS path aliases, so register
+import 'module-alias/register';
 
-const devmode = app.commandLine.hasSwitch('developer');
-
-function createWindow() {
-    const main = new BrowserWindow({
-        height: 600,
-        webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
-        },
-        width: 800,
-    });
-
-    main.loadFile(path.join(__dirname, '../index.html'));
-    
-    if(devmode) {
-        main.webContents.openDevTools();
-    }
-}
+import { app, BrowserWindow, Menu } from 'electron';
+import { createGameWindow } from '@/windows';
+import { createMainMenu } from '@/menus/main-menu';
 
 app.on('ready', () => {
-    createWindow();
+    createGameWindow();
+    Menu.setApplicationMenu(createMainMenu());
 
     app.on('activate', () => {
         // On macOS it's common to re-create a window in the app when the
         // dock icon is clicked and there are no other windows open.
         if(BrowserWindow.getAllWindows().length === 0) {
-            createWindow();
+            createGameWindow();
         }
     });
 });

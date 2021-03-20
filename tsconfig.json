@@ -9,6 +9,9 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
     "outDir": "./dist",
+    "paths": {
+      "@/*": ["./src/*"],
+    }
   },
   "include": [
     "src/**/*"
