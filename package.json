@@ -1,0 +1,24 @@
+{
+  "name": "slate",
+  "version": "0.1.0",
+  "description": "cross platform client for MUCKs, MUDs, and others",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint -c .eslintrc --ext .ts ./src",
+    "start": "npm run build && electron ./dist/main.js"
+  },
+  "keywords": [
+    "client",
+    "game"
+  ],
+  "author": "adamuchi",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "electron": "^12.0.1",
+    "eslint": "^7.22.0",
+    "typescript": "^4.2.3"
+  }
+}
