@@ -1,13 +1,11 @@
 // We use TS path aliases, so register
 import 'module-alias/register';
 
-import { app, BrowserWindow, Menu } from 'electron';
+import { app, BrowserWindow } from 'electron';
 import { createGameWindow } from '@/windows';
-import { createMainMenu } from '@/menus/main-menu';
 
 app.on('ready', () => {
     createGameWindow();
-    Menu.setApplicationMenu(createMainMenu());
 
     app.on('activate', () => {
         // On macOS it's common to re-create a window in the app when the

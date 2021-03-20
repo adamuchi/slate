@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "cross platform client for MUCKs, MUDs, and others",
   "scripts": {
-    "build": "tsc",
+    "clean": "npx rimraf ./dist",
+    "build": "npm run clean && tsc",
     "watch": "tsc -w",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
     "start": "npm run build && electron ./dist/main.js"
@@ -25,7 +26,9 @@
     "@types/lodash": "^4.14.168",
     "@types/node": "^14.14.35",
     "lodash": "^4.17.21",
-    "module-alias": "^2.2.2"
+    "module-alias": "^2.2.2",
+    "rimraf": "^3.0.2",
+    "uikit": "^3.6.18"
   },
   "_moduleAliases": {
     "@": "dist"
